@@ -1,17 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Home/Home";
+import TakeExam from "./components/Exam/TakeExam";
+import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
 import Registration from "./components/registrations/Registration";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <>
-      <Registration />
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/exam" element={<TakeExam />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/register" element={<Registration />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

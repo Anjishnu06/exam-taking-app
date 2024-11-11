@@ -1,6 +1,6 @@
 import React from "react";
 import exam from "../../assets/exam.svg";
-import "./Home.css";
+import "../../assets/Home.css";
 
 const Home = () => {
   return (
