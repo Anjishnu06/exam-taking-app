@@ -1,0 +1,11 @@
+[33mcommit ee628dc317850689ab328116352c062dd13df8d0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature-registration-branch[m[33m, [m[1;31morigin/feature-registration-branch[m[33m)[m
+Author: Patan Khaif Khan <PATAN.KHAIF.KHAN@msg-global.com>
+Date:   Mon Nov 11 14:29:16 2024 +0530
+
+    Done validation for Registration form
+
+[33mcommit 352799270baf0a2a100922308bc5bf77b4bde161[m[33m ([m[1;31morigin/basic-repo-structure-of-user-validation[m[33m, [m[1;32mbasic-repo-structure-of-user-validation[m[33m)[m
+Author: Anjishnu Kumar <Anjishnu.Kumar@msg-global.com>
+Date:   Mon Nov 11 13:20:48 2024 +0530
+
+    Basic Folder Structure
