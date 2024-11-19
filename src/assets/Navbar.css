@@ -1,3 +1,4 @@
+/* General Styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -52,6 +53,7 @@ ul {
   color: #1a202c;
 }
 
+/* Nav Links */
 .nav-links {
   display: flex;
   align-items: center;
@@ -81,6 +83,7 @@ ul {
   border-radius: 4px;
 }
 
+/* Button Group for Desktop */
 .button-group {
   display: flex;
   align-items: center;
@@ -103,6 +106,7 @@ ul {
   background-color: #5d1111;
 }
 
+/* Toggle Menu Button */
 .menu-toggle {
   display: none;
   background: transparent;
@@ -116,28 +120,36 @@ ul {
   stroke: #333;
 }
 
+.user-email {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Mobile Styling */
 .mobile-login {
   display: none;
 }
 
+/* Responsive Styling */
 @media (max-width: 768px) {
   .logo-text {
     font-size: 2vh;
   }
 
+  /* Hide desktop buttons in mobile view */
   .login-button.desktop {
     display: none;
   }
 
   .mobile-login {
-    display: block;
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .login-button.mobile {
     display: block;
     width: 100%;
-    margin-top: 10px;
   }
 
   .nav-links {

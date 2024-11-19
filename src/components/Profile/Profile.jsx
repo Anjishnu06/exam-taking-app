@@ -2,44 +2,43 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-
+import { useTranslation } from "react-i18next";
 
 const Profile = () => {
+  const { t } = useTranslation();
   const [userDetails, setUserDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  const email = sessionStorage.getItem('email')
+  const email = sessionStorage.getItem("email");
 
   useEffect(() => {
-    // Fetch user details from API
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`https://demo-practice.onrender.com/userdata/${email}`); // Replace with your API endpoint
+        const response = await axios.get(`https://demo-practice.onrender.com/userdata/${email}`);
         setUserDetails(response.data);
       } catch (error) {
         console.error("Error fetching user details:", error);
       } finally {
-        setIsLoading(false); // Set loading to false regardless of success or failure
+        setIsLoading(false);
       }
     };
 
     fetchUserDetails();
-  }, []);
+  }, [email]);
 
   const handleEditProfile = () => {
-    navigate("/edit-profile"); // Redirect to edit profile page
+    navigate("/edit-profile");
   };
 
   const handleBackToHome = () => {
-    navigate("/home"); // Redirect to home page
+    navigate("/home");
   };
 
   if (isLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-        <span className="sr-only">Loading</span>
-        <div className="spinner-border text-dark mx-2" role="status">
-        </div>
+        <span className="sr-only">{t("profile.loading")}</span>
+        <div className="spinner-border text-dark mx-2" role="status"></div>
       </div>
     );
   }
@@ -48,19 +47,19 @@ const Profile = () => {
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
       <div className="card shadow" style={{ maxWidth: "400px", width: "100%" }}>
         <div className="card-header text-white" style={{ backgroundColor: "#8b0000" }}>
-          <h5 className="mb-0">User Profile</h5>
+          <h5 className="mb-0">{t("profile.title")}</h5>
         </div>
         <div className="card-body">
           {userDetails ? (
             <>
               <div className="mb-3">
-                <strong>First Name:</strong> {userDetails.first_name}
+                <strong>{t("profile.firstName")}:</strong> {userDetails.first_name}
               </div>
               <div className="mb-3">
-                <strong>Last Name:</strong> {userDetails.last_name}
+                <strong>{t("profile.lastName")}:</strong> {userDetails.last_name}
               </div>
               <div className="mb-3">
-                <strong>Email:</strong> {userDetails.email}
+                <strong>{t("profile.email")}:</strong> {userDetails.email}
               </div>
               <div className="d-flex justify-content-between mt-4">
                 <button
@@ -68,19 +67,19 @@ const Profile = () => {
                   className="btn btn-outline-danger"
                   style={{ color: "#8b0000", borderColor: "#8b0000" }}
                 >
-                  Edit Profile
+                  {t("profile.editProfileButton")}
                 </button>
                 <button
                   onClick={handleBackToHome}
                   className="btn btn-outline-danger"
                   style={{ color: "#8b0000", borderColor: "#8b0000" }}
                 >
-                  Back to Home
+                  {t("profile.backToHomeButton")}
                 </button>
               </div>
             </>
           ) : (
-            <p className="text-danger">Error: User details not available.</p>
+            <p className="text-danger">{t("profile.errorFetching")}</p>
           )}
         </div>
       </div>
